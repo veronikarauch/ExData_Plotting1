@@ -17,12 +17,13 @@ G2<-G1[G1$PowerDate>=Date1&G1$PowerDate<=Date2,]
 DateTime<-paste(G2$PowerDate,G2$PowerTime)
 DateTime<-as.POSIXct(DateTime, format="%Y-%m-%d %H:%M:%S")
 #making the graph
+png(filename = "plot3.png",width = 480, height = 480)
 plot(DateTime, G2$Sub_metering_1,type="l", xlab="", ylab="Energy sub metering")
 lines(DateTime, G2$Sub_metering_2,type="l", col="red")
 lines(DateTime, G2$Sub_metering_3,type="l", col="blue")
 legend("topright", c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  "),col=c("black","red","blue"), lty=c(1,1), lwd=c(1,1))
 #saving the graph
-png(filename = "plot3.png",width = 480, height = 480)
+dev.off()
 }
 #calling the function
 plot3()

@@ -16,10 +16,11 @@ Date2<-as.Date("2007-02-02")
 #Restricitng data to the two days in 2007
 G2<-G1[G1$PowerDate>=Date1&G1$PowerDate<=Date2,]
 #making the graph
+png(filename = "plot1.png",width = 480, height = 480)
 par(mfrow=c(1, 1))
 hist(G2$P,col=2,xlab="Global Active Power (kilowatts)", main="Global Active Power")
 #saving the graph as png
-png(filename = "plot1.png",width = 480, height = 480)
+dev.off()
 }
 #calling the function
 plot1()

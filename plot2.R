@@ -17,10 +17,11 @@ plot2<-function(){
     DateTime<-paste(G2$PowerDate,G2$PowerTime)
     DateTime<-as.POSIXct(DateTime, format="%Y-%m-%d %H:%M:%S")
     #making the graph
+    png(filename = "plot2.png",width = 480, height = 480)
     par(mfrow=c(1, 1))
     plot(DateTime, G2$Global_active_power,type="l",xlab="", ylab="Global Active Power (kilowatts)")
     #saving the graph
-    png(filename = "plot2.png",width = 480, height = 480)
+    dev.off()
     }
 plot2()
 
